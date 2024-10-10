@@ -1,0 +1,70 @@
+<p>home works!</p>
+<div style="background-color: aquamarine">
+  <div class="container-md">
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        @if(isLoginView==true){
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>First Name:</mat-label>
+            <input matInput name="first_name" [(ngModel)]="reg_user_obj.first_name" placeholder="First Name">
+            <mat-hint>Enter name in Capital</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name:</mat-label>
+            <input matInput name="last_name" [(ngModel)]="reg_user_obj.last_name" placeholder="Last Name">
+            <mat-hint>Enter name in capital</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Email:</mat-label>
+            <input matInput name="email" [(ngModel)]="reg_user_obj.email" placeholder="Email@mail.com">
+            <mat-hint>hint</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Password:</mat-label>
+            <input matInput name="pwd" [(ngModel)]="reg_user_obj.pwd" placeholder="Password with letters and numbers">
+            <mat-hint>not to be guessed pwd </mat-hint>
+          </mat-form-field>
+        </p>
+
+        <section>
+          <div class="example-button-row">
+            <button mat-raised-button (click)="doRegistration()">Register </button>
+          </div>
+        </section>
+        <br>
+        <a class="link-info" (click)="isLoginView = false">Login here</a>
+
+        }@else{
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Email:</mat-label>
+            <input matInput name="log_email" [(ngModel)]="log_user_obj.log_email" placeholder="Email id">
+            <mat-hint>Enter name in Capital</mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Password:</mat-label>
+            <input matInput name="log_pwd" [(ngModel)]="log_user_obj.log_pwd" placeholder="Password">
+            <mat-hint>Enter name in capital</mat-hint>
+          </mat-form-field>
+        </p>
+        <section>
+          <div class="example-button-row">
+            <button mat-raised-button (click)="loginUser()">Login </button>
+          </div>
+        </section>
+        <br>
+        <a class="link-info" (click)="isLoginView = true">Register here </a>
+        }
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

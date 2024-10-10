@@ -1,0 +1,19 @@
+
+  .login-container {
+    width: 400px;
+    height: 350px;
+    margin: 20px;
+   
+   
+  }
+  
+  section {
+    display: table;
+  }
+  
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
