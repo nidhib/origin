@@ -1,0 +1,98 @@
+// Notes how this project is done
+1) install angular material UI using command 
+            ng add @angular/material
+2) create four new component named as "home"(having registration and login form), "dashboard", "layout" inside app folder with new folder in it as
+ pages which is created in it manually and then go to that path as 
+ cd src
+ cd app
+ cd pages
+ and then do this :- 
+    ng g c home
+    ng g c dashboard
+    ng g c layout
+    note:- in case of home page, login form will be loaded by default
+3) add angular material ui and bootstrap ui by using command
+     a)   ng add @angular/material
+          npm install bootstrap
+    b) then add these lines in angular.json style 
+             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ],
+4) in app.router.ts add these lines to add route to home page and directly take project to home page after ng serve
+        export const routes: Routes = [
+    {
+        path:'',
+        redirectTo:'app-home',
+        pathMatch:'full'
+
+    },
+    {
+        path: 'app-home',
+        component: HomeComponent,
+    }
+  ];
+
+5) Activate home html page with angular UI form for login , for this 
+        a) impot required material in home.component.ts file
+            import { MatInputModule } from '@angular/material/input';
+            import { MatFormFieldModule } from '@angular/material/form-field'; 
+        and mention same Components in imports in same file as 
+        @Component({
+      imports: [MatCardModule,MatFormFieldModule, MatInputModule,..],
+      b) now call and use the required ones in home.component.html file as 
+      <mat-form-field appearance="fill">
+        <mat-label>First Name:</mat-label>
+        <input matInput placeholder="First Name">
+        <mat-hint>Enter name in Capital</mat-hint>
+      </mat-form-field>
+    </p>
+6) Now , show registration and login form based on a boolean variable isLoginView. for this
+    a) initialize this variable in home.component.ts file as 
+         isLoginView:boolean = true;
+    b) use if else condition in html page and if (isLoginView = true) then show login form which is shown default 
+       else if ( isLoginView = false) then show registration form
+    c) in login form, there is a link showing register now which on click will change the value of variable 
+        isLoginView = false and vice versa in registration form as login now link where isLoginView = true again 
+7) Link html template form fields to respective objects.field to get value from form to be stored in local storage
+    a) import in home.component.ts file 
+        i) import { FormsModule } from '@angular/forms';
+        ii) @Component({
+              imports: [FormsModule,....],
+            })
+        iii) name an object having fields of form as 
+            reg_user_obj: any =
+            {
+                 first_name: '',
+                 last_name: '',
+                email: '',
+                pwd: ''
+            }}
+    b) in html template file i.e home.component.html , registration form is linked to reg_user_pbj fields as 
+            <input name="first_name" [(ngModel)]="reg_user_obj.first_name" placeholder="First Name">
+          here, name="first_name" and [(ngModel)]=" reg_user_obj.first_name" works for linking 
+8) now create   two functions in home.component.ts file to work on click of 'Login' and 'Register' button 
+   these two functions are doRegistration(), loginUser()
+   These functions will be call on click function of both register and login button of html file 
+9) create two more components in pages folder as dashboard and layout 
+    a) dashboard folder is one where user will be taken after valid login done. 
+    b) layout is to let user ......
+    Also, in app.routes.ts modify the path accordingly 
+      {
+        path:'',
+        component:LayoutComponent,
+        children:[
+            {
+            path:'dashboard',
+            component:DashboardComponent
+            }
+        ]
+    }
+10) to navigate to dashboard we use router as inject in home.component.ts file i.e like dependecy injection
+          import { Component, inject } from '@angular/core';
+          import { Router } from '@angular/router';
+          router = inject(Router);
+Inside loginUser(),where ever required to navigate do this:-
+        this.router.navigateByUrl('dashboard');
+
