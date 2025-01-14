@@ -1,0 +1,26 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  text-align: center;
+}
+h2 {
+  color: rgb(39, 91, 49);
+  text-align: center;
+}
+.main_div{
+   align-items: center;
+   text-align: center;
+}
+.button1 {background-color: #2e9a3a;} 
+.hidden_div {
+  color: rgb(39, 91, 49);
+  text-align: center;
+  padding: 10px;
+  background: ghostwhite;
+  position: relative;
+  top: 30px;
+  display: none;
+}

@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+
+  </style>
+  <script src="./mainscript.js"></script>
+  <link rel="stylesheet" href="./mainstyle.css">
+
+  <title>Movie Recommendation System</title>
+
+</head>
+
+<body>
+  <h1>Movie Recommendation System</h1>
+  <h2>Lets help you to choose Movies based on your preferred Genre, Movie duration, and Mood.</h2>
+<div id="main" class="main_div">
+  Preferred Genre: <select name="genre" id="genre">
+    <option value="" selected="selected">Select Genre</option>
+  </select>
+  <br><br>
+ Movie Duration: <select name="duration" id="duration">
+    <option value="" selected="selected">Please select Movie duration</option>
+  </select>
+  <br><br>
+  Mood: <select name="mood" id="mood">
+    <option value="" selected="selected">How is your mood?</option>
+  </select>
+
+  <br><br>
+  <input type="button" class="button1" value="Submit" name="submit" onclick="show_msg()">
+</div>
+  <div id="hidden_div" class="hidden_div" style="display:none">
+  </div>
+
+
+</body>
+
+</html>
